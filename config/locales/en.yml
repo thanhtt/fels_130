@@ -21,3 +21,10 @@
 
 en:
   hello: "Hello world"
+  app_name: "E-learning system"
+  about: "About"
+  contact: "Contact"
+  welcome: "Welcome to the E-learning system"
+  home: "Home"
+  login: "Log in"
+  signup: "Sign up"	
