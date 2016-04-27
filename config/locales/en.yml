@@ -27,4 +27,6 @@ en:
   welcome: "Welcome to the E-learning system"
   home: "Home"
   login: "Log in"
-  signup: "Sign up"	
+  signup: "Sign up"
+  error_mess: "The form contains"
+  create_acc: "Create my account"
