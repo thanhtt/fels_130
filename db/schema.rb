@@ -11,19 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426103607) do
+ActiveRecord::Schema.define(version: 20160427030455) do
 
   create_table "activities", force: :cascade do |t|
-    t.text     "action"
-    t.text     "target_name"
     t.integer  "user_id"
-    t.integer  "lesson_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "action"
+    t.integer  "target_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "activities", ["lesson_id"], name: "index_activities_on_lesson_id"
-  add_index "activities", ["user_id"], name: "index_activities_on_user_id"
 
   create_table "answers", force: :cascade do |t|
     t.text     "content"
@@ -72,9 +68,12 @@ ActiveRecord::Schema.define(version: 20160426103607) do
     t.string   "email"
     t.string   "avatar"
     t.boolean  "isadmin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
 
   create_table "words", force: :cascade do |t|
     t.text     "content"
