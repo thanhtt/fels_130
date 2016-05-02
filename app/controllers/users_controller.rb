@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
+  before_action :load_user, only: [:show, :edit, :update]
 
   def show
-    @user = User.find params[:id]
   end
 
   def new
@@ -15,7 +15,20 @@ class UsersController < ApplicationController
       flash[:success] = t "welcome"
       redirect_to @user
     else
-      render "new"
+      render :new
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "profile_updated"
+      redirect_to @user
+    else
+      flash[:danger] = t "profile_updated_errors"
+      render :edit
     end
   end
 
@@ -23,5 +36,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
   end
 end
