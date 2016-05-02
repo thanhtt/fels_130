@@ -36,3 +36,6 @@ en:
   users: "Users"
   newuser: "New User"
   had_account: "Already have an account"
+  profile: "Profile"
+  name: "Name"
+  email: "Email"
