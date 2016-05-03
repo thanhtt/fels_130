@@ -1,0 +1,6 @@
+<% provide title: t("_courses") %>
+<h1><% t "_courses" %></h1>
+<%= link_to t("_new_course"), new_admin_course_path, {class: "btn btn-primary"} %>
+<ul class="course">
+  <%= render @courses %>
+</ul>
