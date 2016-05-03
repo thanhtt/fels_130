@@ -1,9 +1,13 @@
 class Admin::CoursesController < ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
+  before_action :load_course, only: [:edit, :update]
 
   def index
     @courses = Course.paginate page: params[:page]
+  end
+
+  def edit
   end
 
   def new
@@ -21,8 +25,21 @@ class Admin::CoursesController < ApplicationController
     end
   end
 
+  def update
+    if @course.update_attributes course_params
+      flash[:success] = t "course_update"
+      redirect_to admin_courses_path
+    else
+      render :edit
+    end
+  end
+
   private
   def course_params
     params.require(:course).permit :name, :description
+  end
+
+  def load_course
+    @course = Course.find params[:id]
   end
 end

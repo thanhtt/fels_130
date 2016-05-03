@@ -1,0 +1,14 @@
+<% provide title: t("_course") %>
+<div class="col-md-8">    
+  <%= form_for [:admin, @course] do |f| %>
+    <%= render "shared/error_messages", object: @course %>
+    <div class = "fields" >
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+
+      <%= f.label :description %>
+      <%= f.text_area :description, rows: 10, class: "form-control" %>
+    </div>
+    <%= f.submit t("update_course"), class: "btn btn-lg btn-primary" %>
+   <% end %>  
+</div>

@@ -54,3 +54,6 @@ en:
   _course: "Course"
   course_error: "Create course error"
   _error: "error"
+  course_update: "Course updated!"
+  course_edit: "edit course"
+  update_course: "update course"

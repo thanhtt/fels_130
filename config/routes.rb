@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :admin do
-    resources :courses, only: [:index, :create, :new]
+    resources :courses, except: [:destroy]
   end
 end
