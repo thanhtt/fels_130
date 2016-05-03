@@ -2,4 +2,6 @@
   <span class="course"><%= course.name %></span>
   <p class="description"><%= course.description %></p>
   <%= link_to t("course_edit"), edit_admin_course_path(course) %>
+  <%= link_to t("delete"), [:admin, course], method: :delete,
+    data: {confirm: t("confirm")} %>
 </li>
