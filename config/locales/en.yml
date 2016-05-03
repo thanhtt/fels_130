@@ -59,3 +59,7 @@ en:
   update_course: "update course"
   course_deleted: "course deleted"
   course_can_not_delete: "course delete error"
+  following: "following"
+  followers: "followers"
+  follow: "follow"
+  unfollow: "unfollow"
