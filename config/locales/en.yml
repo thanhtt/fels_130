@@ -57,3 +57,5 @@ en:
   course_update: "Course updated!"
   course_edit: "edit course"
   update_course: "update course"
+  course_deleted: "course deleted"
+  course_can_not_delete: "course delete error"
