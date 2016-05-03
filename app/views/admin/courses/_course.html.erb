@@ -1,4 +1,5 @@
 <li id="course-<%= course.id %>">  
   <span class="course"><%= course.name %></span>
   <p class="description"><%= course.description %></p>
+  <%= link_to t("course_edit"), edit_admin_course_path(course) %>
 </li>
