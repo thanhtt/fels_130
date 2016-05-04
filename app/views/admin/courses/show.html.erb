@@ -1,11 +1,15 @@
 <% provide :title, t("_course") %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="course">
-      <p>
-        <%= t "name" %>: <%= @course.name %></br>
-        <%= t "description" %>: <%= @course.description %>
-      </p>
-    </section>
-  </aside>
+<div class="container">
+  <h1>
+    <%= @course.name %> 
+  </h1>
+
+  <h2>
+    <%= @course.description %>
+  </h2>
+  <%= link_to new_admin_course_word_path(@course),
+    class: "btn btn-primary" do %>
+    <span class="glyphicon glyphicon-plus-sign"></span>
+    <%= t :create_a_word %>
+  <% end %>
 </div>
