@@ -1,0 +1,7 @@
+<% provide title: t("_courses") %>
+<h1><% t "_course" %></h1>
+<%= will_paginate %>
+<ul class="courses">
+  <%= render @courses %>
+</ul>
+<%= will_paginate %>

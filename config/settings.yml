@@ -1,0 +1,9 @@
+per_page: 20
+avatar_size: 80
+small_avatar_size: 30
+default_answer_number: 2
+filter_option:
+  - learned
+  - not_learned
+  - all_words
+number_words_per_lesson: 10
