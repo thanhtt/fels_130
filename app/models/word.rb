@@ -18,6 +18,5 @@ class Word < ActiveRecord::Base
   scope :not_learned, -> user_id{where QUERRY_WORD_NOT_LEARNDED, user_id}
 
   validates :content, presence: true
-
   accepts_nested_attributes_for :answers, allow_destroy: true
 end

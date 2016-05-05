@@ -1,0 +1,10 @@
+<%= provide :title, t("lesson") %>
+<h2><%= t "words_list" %></h2>
+<p><% @words.each do |word| %>
+    <%= word.content %>
+  <% end %>
+</p>
+<h2><%= t "lessons_list" %></h2>
+<% @lessons.each do |lesson| %>
+  <%= link_to lesson.id, [@course,lesson], class: "btn btn-primary" %>
+<% end %>

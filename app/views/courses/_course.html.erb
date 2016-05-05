@@ -1,13 +1,4 @@
-<li>
-  <div class="row">
-    <div class="col-md-4">
-      <h2><%= course.name %></h2>
-    </div>
-    <div class="col-md-2">
-      <%= form_for @lesson do |f| %>
-        <%= f.hidden_field :course_id, value: course.id %>
-        <%= f.submit t("start"), class: "btn btn-primary" %>
-      <% end %>
-    </div>
-  </div>
+<li id="course-<%= course.id %>">
+  <span class="course"><%= course.name %></span>
+  <%= link_to t("start"), course_path(course), class: "btn btn-primary" %>
 </li>
