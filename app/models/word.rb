@@ -3,9 +3,7 @@ class Word < ActiveRecord::Base
 
   has_many :results, dependent: :destroy
   has_many :lessons, through: :results
-  has_many :word_options, dependent: :destroy
-
-  validates :content, presence: true
+  has_many :answers, dependent: :destroy
 
   QUERRY_WORD_LEARNDED = "id in (select word_lessons.word_id from
     word_lessons join lessons on word_lessons.lesson_id = lessons.id
@@ -18,4 +16,8 @@ class Word < ActiveRecord::Base
   scope :all_words, -> user_id{}
   scope :learned, -> user_id{where QUERRY_WORD_LEARNDED, user_id}
   scope :not_learned, -> user_id{where QUERRY_WORD_NOT_LEARNDED, user_id}
+
+  validates :content, presence: true
+
+  accepts_nested_attributes_for :answers
 end

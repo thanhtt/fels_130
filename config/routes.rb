@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :courses, only: [:index]
 
   namespace :admin do
-    resources :courses
+    resources :courses do
+      resources :words, only: [:new, :create]
+    end
   end
 end

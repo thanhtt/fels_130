@@ -1,0 +1,17 @@
+<%= form_for [:admin, @word.course, @word] do |f| %>
+  <%= render "/shared/error_messages", object: @word %>
+  <%= f.hidden_field :course_id, value: @word.course_id %>
+  <div class="form-group">
+    <%= f.label :content %>
+    <%= f.text_field :content, class: "form-control" %>
+  </div>
+  <%= f.label :answers %>
+  <%= f.fields_for :answers do |builder| %>
+    <%= render "answer_fields", f: builder %>
+  <% end %>
+  <p>
+    <%= link_to_add_fields f, :answers %>
+  </p>
+  <br/>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
