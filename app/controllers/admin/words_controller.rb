@@ -1,7 +1,7 @@
 class Admin::WordsController < ApplicationController
   before_action :logged_in_user
   before_action :verify_admin
-  before_action :load_word, only: [:edit, :update]
+  before_action :load_word, only: [:edit, :update, :destroy]
 
   def new
     course = Course.find params[:course_id]
@@ -30,6 +30,15 @@ class Admin::WordsController < ApplicationController
       flash.now[:danger] = t "_error"
       render :edit
     end
+  end
+
+  def destroy
+    if @word.destroy
+      flash[:success] = t "deleted"
+    else
+      flash[:danger] = t "_error"
+    end
+    redirect_to :back
   end
 
   private

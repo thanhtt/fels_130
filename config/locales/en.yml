@@ -84,3 +84,5 @@ en:
   you_sure: "are you sure"
   edit_word: "edit"
   update_word: "update word"
+  deleted: "deleted!"
+  delete: "delete"

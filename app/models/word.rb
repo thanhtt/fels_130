@@ -19,5 +19,5 @@ class Word < ActiveRecord::Base
 
   validates :content, presence: true
 
-  accepts_nested_attributes_for :answers
+  accepts_nested_attributes_for :answers, allow_destroy: true
 end
