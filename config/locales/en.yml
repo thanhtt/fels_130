@@ -80,3 +80,7 @@ en:
   create_a_word: "Create word"
   success: "success"
   new_word: "new word"
+  edit_word: "edit word"
+  you_sure: "are you sure"
+  edit_word: "edit"
+  update_word: "update word"

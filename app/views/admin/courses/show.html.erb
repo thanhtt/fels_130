@@ -13,3 +13,17 @@
     <%= t :create_a_word %>
   <% end %>
 </div>
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= t :words %></h3>
+  </div>
+  <% if @words.any? %>
+    <%= render @words %>
+    <div class="text-center">
+      <%= will_paginate @words %>
+    </div>
+  <% else %>
+    <%= t :no_items_found %>
+  <% end %>
+</div>
