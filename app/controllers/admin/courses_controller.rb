@@ -45,6 +45,8 @@ class Admin::CoursesController < ApplicationController
 
   def show
     @course = Course.find params[:id]
+    @words = @course.words.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   private

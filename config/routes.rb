@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :courses do
-      resources :words, only: [:new, :create]
+      resources :words, except: [:destroy]
     end
   end
 end
