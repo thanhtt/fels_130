@@ -3,6 +3,8 @@ class UsersController < ApplicationController
   before_action :load_user, only: [:show, :edit, :update]
 
   def show
+    @activities = @user.activities.order(created_at: :desc)
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new

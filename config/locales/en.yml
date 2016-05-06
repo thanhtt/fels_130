@@ -97,3 +97,11 @@ en:
   create: "Create"
   create_lesson_success: "Create Lesson Success"
   create_lesson_fail: "Create Lesson Fail"
+  no_activites: "No activities"
+  target: "target"
+  activities: "activities"
+  words_in_lesson: "word in lesson"
+  learned: "learned"
+  date:
+    formats:
+      short: "%F"
