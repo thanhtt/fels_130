@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
   def show
     @lessons = @course.lessons
     @words = @course.words
+    @lesson = Lesson.new
   end
 
   private

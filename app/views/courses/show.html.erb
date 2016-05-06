@@ -4,7 +4,13 @@
     <%= word.content %>
   <% end %>
 </p>
+
 <h2><%= t "lessons_list" %></h2>
 <% @lessons.each do |lesson| %>
   <%= link_to lesson.id, [@course,lesson], class: "btn btn-primary" %>
+<% end %>
+
+<h2><%= t "start_lesson" %></h2>
+<%= form_for [@course, @lesson] do |f| %>
+  <%= f.submit t("create"), class: "btn btn-primary" %>
 <% end %>

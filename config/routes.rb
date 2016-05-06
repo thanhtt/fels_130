@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
   resources :words, only: [:index]
   resources :courses, only: [:index, :show] do
-    resources :lessons, only: [:show]
+    resources :lessons, only: [:show, :create]
   end
 
   namespace :admin do

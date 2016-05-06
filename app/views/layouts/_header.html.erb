@@ -2,6 +2,15 @@
   <div class="container">
     <%= link_to t("app_name"), root_path, id: "logo" %>
     <nav>
+      <ul class="nav navbar-nav">
+        <% if logged_in? %>
+          <% if current_user.isadmin? %>
+            <li><%= link_to t("admin"), admin_courses_path %></li>
+          <% else %>
+            <li><%= link_to t("admin"), root_path %></li>
+          <% end %>
+        <% end %>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path %></li>
         <% if logged_in? %>
