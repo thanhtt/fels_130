@@ -1,0 +1,16 @@
+<li>
+  <div class="col-md-4">
+    <%= render activity.user %>
+  </div>
+  <div class="col-md-7"><br/>
+    <%= activity.action %>
+    <% if activity.action == Setting.activity.follow %>
+      <%= activity.load_lesson.results.count %>
+      <%= t "activity.words_in_lesson" %>
+      <%= activity.load_lesson.course.name %>
+    <% else %>
+      <%= activity.load_relationship.user.name %>
+    <%= end %>
+    <%= activity.created_at.strftime(t "date.formats.short") %>
+  </div>
+</li>
