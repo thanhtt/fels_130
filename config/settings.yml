@@ -6,4 +6,5 @@ filter_option:
   - not_learned
   - all_words
 number_words_per_lesson: 10
+number_words_min: 9
 per_page: 10

@@ -93,3 +93,7 @@ en:
   finish: "Finish"
   user_can_not_take_lesson: "User can not take lesson"
   lessons_list: "Lessons List"
+  start_lesson: "Start Lesson"
+  create: "Create"
+  create_lesson_success: "Create Lesson Success"
+  create_lesson_fail: "Create Lesson Fail"
