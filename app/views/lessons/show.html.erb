@@ -1,3 +1,24 @@
 <% provide :title, t("start_lesson") %>
-  <h1><%= @course.name %></h1>
-  <h2><%= @course.description %></h2>
+<h1><%= @course.name %></h1>
+<h2><%= @course.description %></h2>
+<h3><%= t "title_question" %></h3>
+<%= form_for [@course, @lesson] do |f| %>
+  <% @words.each_with_index do |word, index| %>
+    <li>
+      <%= index + 1 %>.
+      <%= word.content %></br>
+      <% if @lesson.finished.nil? %>
+        <% word.answers.each do |answer| %>
+          <%= answer.content %>
+          <%= radio_button_tag :answer_id, answer.id %>
+          <%= hidden_field :word_id, value: answer.word.id %>
+        <% end %>
+      <% else %>
+        <%= render "result", answer: answer %>
+      <% end %>
+    </li>
+  <% end %>
+  <% if @lesson.finished.nil? %>
+    <%= f.submit t("submit"), class: "btn btn-primary" %>
+  <% end %>
+<% end %>

@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   before_action :load_lesson, only: [:show, :update]
 
   def show
-    @words = @course.words
+    @words = @lesson.words
   end
 
   def create

@@ -5,8 +5,8 @@ filter_option:
   - learned
   - not_learned
   - all_words
-number_words_per_lesson: 10
-number_words_min: 9
+number_words_per_lesson: 5
+number_words_min: 3
 per_page: 10
 activitty:
   learned: "learned"
