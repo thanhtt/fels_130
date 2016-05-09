@@ -1,0 +1,10 @@
+<%= f.radio_button :answer_id, answer.id,
+  disabled: @lesson.finished %>
+<% if @lesson.finished && f.object.answer == answer %>
+  <span class="<%= answer.is_correct ? "text-success":
+    "text-danger" %>">
+    <%= answer.content %>
+  </span>
+<% else %>
+  <%= answer.content %>
+<% end %>

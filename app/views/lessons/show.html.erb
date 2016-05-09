@@ -2,21 +2,37 @@
 <h1><%= @course.name %></h1>
 <h2><%= @course.description %></h2>
 <h3><%= t "title_question" %></h3>
+
+<% if @lesson.finished.present? %>
+  <h4>
+    <%= t "score" %>:
+    <%= @lesson.results.is_correct_answers.count %> /
+    <%= @lesson.words.count %>
+  </h4>
+<% end %>
+
 <%= form_for [@course, @lesson] do |f| %>
-  <% @words.each_with_index do |word, index| %>
-    <li>
-      <%= index + 1 %>.
-      <%= word.content %></br>
-      <% if @lesson.finished.nil? %>
-        <% word.answers.each do |answer| %>
-          <%= answer.content %>
-          <%= radio_button_tag :answer_id, answer.id %>
-          <%= hidden_field :word_id, value: answer.word.id %>
+  <%= f.hidden_field :finished, value: true %>
+  <%= f.fields_for :results do |builder| %>
+    <ul class="list-unstyled">
+      <li>
+        <%= builder.index + 1 %>.
+        <%= builder.object.word.content %>
+      </li>
+      <ul class="list-unstyled">
+        <% builder.object.word.answers.each do |answer| %>
+          <% if @lesson.finished.nil? %>
+            <li>
+              <%= answer.content %>
+              <%= builder.radio_button :answer_id, answer.id %>
+              <%= builder.hidden_field :word_id, value: answer.word.id %>
+            </li>
+          <% else %>
+            <%= render "result", f: builder, answer: answer %>
+          <% end %>
         <% end %>
-      <% else %>
-        <%= render "result", answer: answer %>
-      <% end %>
-    </li>
+      </ul>
+    </ul>
   <% end %>
   <% if @lesson.finished.nil? %>
     <%= f.submit t("submit"), class: "btn btn-primary" %>

@@ -9,12 +9,12 @@ class Word < ActiveRecord::Base
     reject_if: proc {|attributes| attributes[:content].blank?},
     allow_destroy: true
 
-  QUERRY_WORD_LEARNDED = "id in (select word_lessons.word_id from
-    word_lessons join lessons on word_lessons.lesson_id = lessons.id
+  QUERRY_WORD_LEARNDED = "id in (select results.word_id from
+    results join lessons on results.lesson_id = lessons.id
     where lessons.user_id = ?)"
 
-  QUERRY_WORD_NOT_LEARNDED = "id not in (select word_lessons.word_id from
-    word_lessons join lessons on word_lessons.lesson_id = lessons.id
+  QUERRY_WORD_NOT_LEARNDED = "id not in (select results.word_id from
+    results join lessons on results.lesson_id = lessons.id
     where lessons.user_id = ?)"
 
   scope :all_words, -> user_id{}

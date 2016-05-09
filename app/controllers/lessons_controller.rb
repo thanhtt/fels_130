@@ -17,6 +17,11 @@ class LessonsController < ApplicationController
     end
   end
 
+  def update
+    @lesson.update_attributes lesson_params
+    redirect_to :back
+  end
+
   private
   def load_course
     @course = Course.find params[:course_id]
@@ -24,5 +29,10 @@ class LessonsController < ApplicationController
 
   def load_lesson
     @lesson = Lesson.find params[:id]
+  end
+
+  def lesson_params
+    params.require(:lesson).permit :user_id, :course_id, :finished,
+      results_attributes: [:id, :word_id, :answer_id]
   end
 end
