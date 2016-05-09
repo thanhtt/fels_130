@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to t("home"), root_path %></li>
         <% if logged_in? %>
-          <li><%= link_to t("users"), "#" %></li>
+          <li><%= link_to t("users"), users_path %></li>
           <li><%= link_to t("_course"), courses_path %></li>
           <li><%= link_to t("word"), words_path %></li>
           <li class="dropdown">

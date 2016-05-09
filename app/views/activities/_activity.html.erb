@@ -1,0 +1,22 @@
+<% if logged_in? && (current_user.following?(@user) || current_user.is_user?(@user)) %>
+  <li>
+    <%= link_to gravatar_for activity.user %>
+    <span class="user"><%= link_to activity.user.name, activity.user %> </span>
+    <span class="content">
+      <%= activity.action %>
+      <% if activity.action == Settings.activity.learned %>
+        <%= activity.load_lesson.results.count %>
+        <%= t "activity.words_in_lesson" %>
+        <%= activity.load_lesson.course.name %>
+      <% else %>
+        <%= t "user" %>
+        <%= activity.load_user.name %>
+      <% end %>
+    </span>
+    <span class="timestamp">
+      <%= t "about" %>
+      <%= time_ago_in_words activity.created_at %> 
+      <%= t "ago" %>
+    </span> 
+  </li>
+<% end %>

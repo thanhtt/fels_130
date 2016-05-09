@@ -8,7 +8,7 @@ filter_option:
 number_words_per_lesson: 5
 number_words_min: 3
 per_page: 10
-activitty:
+activity:
   learned: "learned"
   follow: "follow"
   unfollow: "unfollow"
