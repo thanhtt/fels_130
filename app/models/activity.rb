@@ -5,7 +5,7 @@ class Activity < ActiveRecord::Base
     Lesson.find_by id: self.target_id
   end
 
-  def load_relationship
-    Relationship.find_by id: self.target_id
+  def load_user
+    User.find_by id: self.target_id
   end
 end

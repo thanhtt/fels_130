@@ -106,3 +106,7 @@ en:
     formats:
       short: "%F"
   title_question: "Correct Words Test | Quizlet"
+  user: "user"
+  about: "About"
+  ago: "ago"
+  all_users: "All user"
