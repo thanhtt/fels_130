@@ -5,9 +5,11 @@ class Lesson < ActiveRecord::Base
 
   has_many :activities, dependent: :destroy
   has_many :words, through: :results
-  has_many :results, dependent: :destroy
+  has_many :results
 
   validate :word_min, on: :create
+
+  accepts_nested_attributes_for :results
 
   private
   def create_word

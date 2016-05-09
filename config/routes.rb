@@ -6,11 +6,12 @@ Rails.application.routes.draw do
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
+
   resources :users
   resources :relationships, only: [:create, :destroy]
   resources :words, only: [:index]
   resources :courses, only: [:index, :show] do
-    resources :lessons, only: [:show, :create]
+    resources :lessons, except: [:index, :destroy, :edit]
   end
 
   namespace :admin do

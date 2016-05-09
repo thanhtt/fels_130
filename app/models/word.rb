@@ -5,6 +5,10 @@ class Word < ActiveRecord::Base
   has_many :lessons, through: :results
   has_many :answers, dependent: :destroy
 
+  accepts_nested_attributes_for :answers,
+    reject_if: proc {|attributes| attributes[:content].blank?},
+    allow_destroy: true
+
   QUERRY_WORD_LEARNDED = "id in (select word_lessons.word_id from
     word_lessons join lessons on word_lessons.lesson_id = lessons.id
     where lessons.user_id = ?)"
@@ -18,5 +22,4 @@ class Word < ActiveRecord::Base
   scope :not_learned, -> user_id{where QUERRY_WORD_NOT_LEARNDED, user_id}
 
   validates :content, presence: true
-  accepts_nested_attributes_for :answers, allow_destroy: true
 end
