@@ -7,7 +7,8 @@
 
 <h2><%= t "lessons_list" %></h2>
 <% @lessons.each do |lesson| %>
-  <%= link_to lesson.id, [@course,lesson], class: "btn btn-primary" %>
+  <%= link_to lesson.id, [@course,lesson],
+    class: "btn btn-#{lesson.finished.nil? ? 'primary' : 'danger'}" %>
 <% end %>
 
 <h2><%= t "start_lesson" %></h2>

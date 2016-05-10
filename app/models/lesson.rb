@@ -2,11 +2,12 @@ class Lesson < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
   before_create :create_word
-  after_create :create_activity
+  after_update :create_activity
 
   has_many :activities, dependent: :destroy
   has_many :words, through: :results
   has_many :results
+  has_many :answers, through: :results
 
   validate :word_min, on: :create
 
