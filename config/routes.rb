@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root "courses#index"
     resources :courses do
       resources :words
     end
