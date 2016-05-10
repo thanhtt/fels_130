@@ -15,23 +15,29 @@
   <%= f.hidden_field :finished, value: true %>
   <%= f.fields_for :results do |builder| %>
     <ul class="list-unstyled">
-      <li>
-        <%= builder.index + 1 %>.
-        <%= builder.object.word.content %>
-      </li>
-      <ul class="list-unstyled">
-        <% builder.object.word.answers.each do |answer| %>
-          <% if @lesson.finished.nil? %>
-            <li>
-              <%= answer.content %>
-              <%= builder.radio_button :answer_id, answer.id %>
-              <%= builder.hidden_field :word_id, value: answer.word.id %>
-            </li>
-          <% else %>
-            <%= render "result", f: builder, answer: answer %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= builder.index + 1 %>.
+            <%= builder.object.word.content %>
+          </h3>
+        </div>
+        <div class="panel_body">
+          <% builder.object.word.answers.each do |answer| %>
+            <% if @lesson.finished.nil? %>
+              <div class="row">
+                <div class="col-sm-1">
+                  <%= builder.radio_button :answer_id, answer.id %>
+                  <%= builder.hidden_field :word_id, value: answer.word.id %>
+                </div>
+                <div class="col-sm-4"><%= answer.content %></div>
+              </div>
+            <% else %>
+              <%= render "result", f: builder, answer: answer %>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>
+        </div>
+      </div>
     </ul>
   <% end %>
   <% if @lesson.finished.nil? %>

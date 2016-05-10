@@ -23,6 +23,7 @@
         </div>
       </div>
       <%= f.submit t("filter"), class: "btn btn-default filter-button" %>
+      <p><%= t "total_words" %>: <%= @words.count %></p>
     <% end %>
   </div>
 </div>

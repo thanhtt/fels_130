@@ -1,4 +1,11 @@
-<li id="course-<%= course.id %>">
-  <span class="course"><%= course.name %></span>
-  <%= link_to t("start"), course_path(course), class: "btn btn-primary" %>
-</li>
+<tr>
+  <td class="course-name">
+    <%= course.name %>
+  </td>
+  <td class="course-description">
+    <%= course.description %>
+  </td>
+  <td>
+    <%= link_to t("start"), course_path(course), class: "btn btn-primary" %>
+  </td>
+</tr>

@@ -1,17 +1,11 @@
 <%= provide :title, t("lesson") %>
-<h2><%= t "words_list" %></h2>
-<p><% @words.each do |word| %>
-    <%= word.content %>
-  <% end %>
-</p>
-
 <h2><%= t "lessons_list" %></h2>
-<% @lessons.each do |lesson| %>
-  <%= link_to lesson.id, [@course,lesson],
+<% @lessons.each_with_index do |lesson, index| %>
+  <%= link_to (index + 1), [@course,lesson],
     class: "btn btn-#{lesson.finished.nil? ? 'primary' : 'danger'}" %>
 <% end %>
 
 <h2><%= t "start_lesson" %></h2>
 <%= form_for [@course, @lesson] do |f| %>
-  <%= f.submit t("create"), class: "btn btn-primary" %>
+  <%= f.submit t("start"), class: "btn btn-primary" %>
 <% end %>

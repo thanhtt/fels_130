@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
     @lesson = current_user.lessons.new course_id: @course.id
     if @lesson.save
       flash[:success] = t "create_lesson_success"
-      redirect_to :back
+      redirect_to [@lesson.course, @lesson]
     else
       flash[:success] = t "create_lesson_fail"
       redirect_to courses_path
